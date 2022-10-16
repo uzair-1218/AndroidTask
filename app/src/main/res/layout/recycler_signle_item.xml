@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:id="@+id/main_content_lay"
+    android:layout_height="@dimen/_85sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/drink_image"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/drink_name_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/fav_img"
+        android:layout_toRightOf="@+id/drink_image"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:text="Mint Margarita"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/drink_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/drink_name_txt"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/fav_img"
+        android:layout_toRightOf="@+id/drink_image"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:text="this is margarita Reci "
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10ssp" />
+
+    <TextView
+        android:id="@+id/is_alcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/roboto"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:text="Alcoholic"
+        android:textSize="@dimen/_12ssp" />
+
+    <CheckBox
+        android:id="@+id/alcoholic_check"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_below="@+id/drink_name_txt"
+        android:layout_alignParentEnd="true"
+        android:clickable="false"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:buttonTint="@color/blue" />
+
+    <ImageView
+        android:id="@+id/fav_img"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_toLeftOf="@+id/is_alcohol"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/ic_star_line" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray"/>
+
+</RelativeLayout>

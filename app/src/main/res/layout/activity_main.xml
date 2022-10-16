@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:id="@+id/title_bar"
+        android:background="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_45sdp"
+
+            android:text="@string/drinks_recipes"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            android:id="@+id/title_txt"
+            android:textColor="@color/white"
+          />
+
+        <ImageView
+            android:id="@+id/set_reminder"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_alarm" />
+    </RelativeLayout>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_lay"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:id="@+id/bottom_lay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/stroke"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:id="@+id/home_tab"
+            android:gravity="center_vertical"
+            android:layout_weight=".5">
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:id="@+id/home_image"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_home_fill"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/home_txt"
+                android:layout_below="@+id/home_image"
+                android:textColor="@color/white"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:id="@+id/fav_tab"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_weight=".5">
+
+            <ImageView
+                android:id="@+id/favourite_image"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerHorizontal="true"
+
+                android:src="@drawable/ic_star_line_blue" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favourite"
+                android:id="@+id/favourite_txt"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/favourite_image"
+                android:textColor="@color/blue" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

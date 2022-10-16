@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidTask</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drinks_recipes">Drinks Recipes</string>
+    <string name="favourite">Favourite</string>
+    <string name="by_name">By Name</string>
+    <string name="set">Set</string>
+</resources>
