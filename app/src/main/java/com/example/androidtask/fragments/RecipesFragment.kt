@@ -84,6 +84,8 @@ class RecipesFragment : Fragment() {
             }
         })
 
+
+
         binding.searchImg.setOnClickListener {
 
             if (isByname){
@@ -129,7 +131,8 @@ class RecipesFragment : Fragment() {
                     }
                 })
 
-            }else{
+            }
+            else{
                 Prefs.putString(AppUtils.By_ALPHABET,binding.searchEdt.text.toString())
 
                 viewModel.getDrinksByAlphabet(binding.searchEdt.text.toString())
@@ -172,6 +175,8 @@ class RecipesFragment : Fragment() {
         }
         return binding.root
     }
+
+
 
 
     fun getBitmap(src: String?): Bitmap? {

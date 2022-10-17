@@ -17,7 +17,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.androidtask.R
 import com.example.androidtask.adapter.ViewPagerAdapter
 import com.example.androidtask.databinding.ActivityMainBinding
-import com.example.androidtask.recivers.ReminderReciever
+import com.example.androidtask.recievers.ReminderReciever
+import com.pixplicity.easyprefs.library.Prefs
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -109,8 +110,10 @@ class MainActivity : AppCompatActivity() {
         val set_remonder:Button = dialog.findViewById(R.id.btn_set)
 
         timePicker.setOnTimeChangedListener(OnTimeChangedListener { timePicker: TimePicker?, sHour: Int, sMinute: Int ->
-            hour = sHour
-            minute = sMinute
+
+           Prefs.putInt("Hours",sHour)
+            Prefs.putInt("MINUTES",sMinute)
+
         })
 
         set_remonder.setOnClickListener {
@@ -139,8 +142,8 @@ class MainActivity : AppCompatActivity() {
         val call_now = Calendar.getInstance()
         call_alarm.time = Date()
         call_now.time = Date()
-        call_alarm[Calendar.HOUR_OF_DAY] = hour
-        call_alarm[Calendar.MINUTE] = minute
+        call_alarm[Calendar.HOUR_OF_DAY] = Prefs.getInt("Hours")
+        call_alarm[Calendar.MINUTE] = Prefs.getInt("MINUTES")
         call_alarm[Calendar.SECOND] = 0
         if (call_alarm.before(call_now)) {
             call_alarm.add(Calendar.DATE, 1)

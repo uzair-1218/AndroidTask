@@ -1,4 +1,4 @@
-package com.example.androidtask.recivers
+package com.example.androidtask.recievers
 
 
 import android.annotation.SuppressLint
@@ -8,7 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Vibrator
-import android.widget.RemoteViews
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.androidtask.R
@@ -33,22 +33,21 @@ class ReminderReciever : BroadcastReceiver() {
 
             val randomGenerator: Random = Random()
             val index = randomGenerator.nextInt(databaseClass.drinkdao().getAllData().size)
+
+            Log.d("CHECK_NUMBER", "onReceive:"+index)
             val entity = databaseClass.drinkdao().getAllData().get(index)
-            val mBuilder = NotificationCompat.Builder(context, "Notify")
-            val contentView = RemoteViews(context.packageName, R.layout.recycler_signle_item)
-            contentView.setImageViewBitmap(R.id.drink_image,entity.drink_image)
-            contentView.setTextViewText(R.id.drink_name_txt,entity.drink_name)
-            contentView.setTextViewText(R.id.drink_des,entity.drink_description)
-            contentView.setOnClickPendingIntent(R.id.main_content_lay, p)
-            mBuilder.setSmallIcon(R.drawable.ic_alarm)
-            mBuilder.setAutoCancel(false)
-            mBuilder.setOngoing(true)
-            mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH)
-            mBuilder.setOnlyAlertOnce(true)
-            mBuilder.setDefaults(NotificationCompat.PRIORITY_HIGH)
-            mBuilder.setContent(contentView)
+            val b: NotificationCompat.Builder = NotificationCompat.Builder(context, "Notify")
+                .setSmallIcon(R.drawable.ic_alarm).setLargeIcon(entity.drink_image)
+                .setContentTitle(entity.drink_name)
+                .setContentText(entity.drink_description)
+                .setStyle(NotificationCompat.BigTextStyle().bigText(entity.drink_name))
+                .setStyle(NotificationCompat.BigTextStyle().bigText(entity.drink_description))
+                .setAutoCancel(true)
+                .setDefaults(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(p)
             val n = NotificationManagerCompat.from(context)
-            n.notify(200, mBuilder.build())
+            n.notify(200, b.build())
 
         }else{
             val b: NotificationCompat.Builder = NotificationCompat.Builder(context, "Notify")
